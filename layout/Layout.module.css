@@ -20,8 +20,6 @@
 }
 
 .sidebar {
-	color: var(--white);
-	background-color: #2C2C2C;
 	grid-area: sidebar;
 }
 

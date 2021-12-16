@@ -45,14 +45,14 @@ export const Menu = (): JSX.Element => {
 	const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
 		return (
 			<div className={styles.secondBlock}>
-				{menu.map((m, i) => {
+				{menu.map(m => {
 					if (m.pages.map(p => p.alias).includes(router.asPath.split('/')[2])) {
 						m.isOpened = true;
 					}
 
 					return (
-						<div key={`${menuItem.id}-${i}`}>
-							<div key={m._id.secondCategory} className={styles.secondLevel} onClick={() => openSecondLevel(m._id.secondCategory)} >
+						<div key={m._id.secondCategory}>
+							<div className={styles.secondLevel} onClick={() => openSecondLevel(m._id.secondCategory)} >
 								{m._id.secondCategory}
 							</div>
 							<div className={cn(styles.secondLevelBlock, {
@@ -70,7 +70,7 @@ export const Menu = (): JSX.Element => {
 	const buildThirdLevel = (pages: PageItem[], route: string) => {
 		return (
 			pages.map(p => (
-				<Link href={`/${route}/${p.alias}`}>
+				<Link href={`/${route}/${p.alias}`} key={p._id}>
 					<a className={cn(styles.thirdLevel, {
 						[styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath
 					})}>

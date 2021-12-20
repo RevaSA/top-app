@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import { useState } from 'react';
 import axios from 'axios';
 import { withLayout } from '../layout/Layout';
-import { Button, Htag, Input, P, Rating, Tag } from '../components';
+import { Button, Htag, Input, P, Rating, Tag, Textarea } from '../components';
 import { MenuItem } from '../interfaces/menu.interface';
 
 function Home({ menu }: HomeProps): JSX.Element {
@@ -38,7 +38,12 @@ function Home({ menu }: HomeProps): JSX.Element {
 				{menu.map(m => (<li key={m._id.secondCategory}>{m._id.secondCategory}</li>))}
 			</ul>
 
-			<Input placeholder='тест' />
+			<div>
+				<Input placeholder='тест' />
+			</div>
+			<div>
+				<Textarea placeholder='тест' />
+			</div>
 		</>
 	);
 }
